@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
-import Logo from "./components/atoms/logoName/logo";
+import NavBarText from "./components/atoms/NavbarText/NavBarText";
+import Navbar from "./components/molecules/Navbar/Navbar";
 
 function App() {
   return (
-    <>
-      <Logo />
-    </>
+    <div className="App">
+      <Navbar />
+    </div>
   );
 }
 
