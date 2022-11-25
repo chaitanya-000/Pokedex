@@ -1,8 +1,13 @@
 import React from "react";
 import "./App.css";
+import Logo from "./components/atoms/logoName/logo";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <Logo />
+    </>
+  );
 }
 
 export default App;
