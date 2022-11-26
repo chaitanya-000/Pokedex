@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
-import NavBarText from "./components/atoms/NavbarText/NavBarText";
-import Navbar from "./components/molecules/Navbar/Navbar";
+import InputSection from "./components/organisms/InputSection/InputSection";
+import Navbar from "./components/organisms/Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar /> */}
+      <InputSection />
     </div>
   );
 }
