@@ -6,7 +6,7 @@ const InputBox = () => {
   return (
     <TextInput
       sx={{ width: "40%" }}
-      placeholder="Your name"
+      placeholder="Name or Number"
       withAsterisk
       className="input"
       size="lg"

@@ -1,6 +1,7 @@
 import { Button, Text } from "@mantine/core";
 import React from "react";
 import "./ShowStatsButton.css";
+import TuneIcon from "@mui/icons-material/Tune";
 
 const ShowStatsButton = () => {
   return (
@@ -11,7 +12,8 @@ const ShowStatsButton = () => {
       color="cyan"
       sx={{ backgroundColor: " yellow", width: "10%", fontSize: "1.2em" }}
     >
-      Stats
+      <TuneIcon fontSize="small" />
+      <p>Stats</p>
     </Button>
   );
 };

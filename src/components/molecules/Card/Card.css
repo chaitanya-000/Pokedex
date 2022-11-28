@@ -1,7 +1,7 @@
 .Card_container {
   height: 16.875rem;
   width: 11.25rem;
-  border: 4px dashed #000;
+  border: 2px dashed #000;
   border-radius: 10px;
   display: flex;
   flex-direction: column;

@@ -19,7 +19,7 @@ const DropDown = () => {
       radius="lg"
       data={data}
       size="md"
-      placeholder="Pick all that you like"
+      placeholder="Pokemon type"
     />
   );
 };
