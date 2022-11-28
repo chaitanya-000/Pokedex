@@ -1,0 +1,9 @@
+.InputSection_container {
+  /* border: 2px solid green; */
+  height: 11%;
+  width: 92vw;
+  display: flex;
+  gap: 15.5%;
+  align-items: center;
+  /* justify-content: space-evenly; */
+}

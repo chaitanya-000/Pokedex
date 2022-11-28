@@ -1,9 +1,10 @@
 .container {
   display: flex;
-  /* border: 2px solid red; */
   align-items: center;
   justify-content: flex-start;
   gap: 2.5%;
+  /* border: 2px solid red; */
+  width: 100%;
 }
 .dividerLine {
   width: 2px;
