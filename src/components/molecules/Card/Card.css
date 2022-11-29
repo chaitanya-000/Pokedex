@@ -9,7 +9,8 @@
   justify-content: center;
   background-image: linear-gradient(rgb(192, 212, 200), rgb(207, 183, 237));
 }
-.img {
-  width: 70%;
-  height: 60%;
+.CardImage_image {
+  width: 60%;
+  height: 660%;
+  /* border: 2px solid red; */
 }
