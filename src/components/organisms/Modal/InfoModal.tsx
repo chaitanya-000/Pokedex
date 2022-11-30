@@ -26,7 +26,7 @@ const InfoModal = ({
 
   const infoText = async () => {
     await axios
-      .get(`https://pokeapi.co/api/v2/pokemon-species/1`)
+      .get(`https://pokeapi.co/api/v2/pokemon-species/${selectedIndex}`)
       .then((response) => {
         const filteredFlavourTextArray =
           response.data.flavor_text_entries.filter((eachObj: any) => {
@@ -35,18 +35,22 @@ const InfoModal = ({
 
         setPokemonInfo(filteredFlavourTextArray);
       });
-    // console.log(pokemonInfo);
   };
 
-  const xyz = pokemonInfo.map((eachObj: any) => {
+  const arrayofDuplicateTexts = pokemonInfo.map((eachObj: any) => {
     return eachObj.flavor_text;
   });
-  // console.log(xyz);
 
-  const filteredArray = xyz.filter((eachElement, index, xyz) => {
-    return xyz.indexOf(eachElement) === index;
-  });
-  console.log(filteredArray);
+  const filteredArray: Array<string> = arrayofDuplicateTexts.filter(
+    (eachElement, index, arrayofDuplicateTexts) => {
+      return arrayofDuplicateTexts.indexOf(eachElement) === index;
+    }
+  );
+  console.log(
+    filteredArray.map((eachObject) => {
+      console.log(eachObject);
+    })
+  );
 
   useEffect(() => {
     openModal && getimgSrc();
@@ -89,11 +93,9 @@ const InfoModal = ({
             </div>
           </div>
           <div className="bottom_container">
-            <h3>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              delectus accusantium mollitia quae, ullam eum repellendus nam
-              libero. A temporibus qui cum maxime!
-            </h3>
+            {filteredArray.map((eachObject) => {
+              return <span style={{}}>{eachObject}</span>;
+            })}
           </div>
         </div>
       </Modal>
@@ -102,8 +104,3 @@ const InfoModal = ({
 };
 
 export default InfoModal;
-
-// let myArray: any = [];
-// myArray.push(...myArray, eachObj.flavor_text);
-
-// console.log(myArray);
