@@ -3,7 +3,12 @@ import React, { useEffect, useState } from "react";
 import { allPokemonUrlArray } from "../../../promises";
 import "./Card.css";
 
-const Card = ({ selectedIndex, setSelectedIndex }: any) => {
+const Card = ({
+  selectedIndex,
+  setSelectedIndex,
+}: // pokemonName,
+// setPokemonName,
+any) => {
   const [pokemonArray, setPokemonArray] = useState<any>([]);
 
   useEffect(() => {
@@ -11,10 +16,11 @@ const Card = ({ selectedIndex, setSelectedIndex }: any) => {
       const myArray = await allPokemonUrlArray();
       // console.log(myArray);
       setPokemonArray(myArray);
+      // setPokemonName()
     };
     myFunc();
   }, []);
-  console.log("Selected Index ", selectedIndex);
+  // console.log("Selected Index ", selectedIndex);
   return (
     pokemonArray &&
     pokemonArray.map((eachObj: any, index: number) => {

@@ -8,6 +8,7 @@ import "./HomePage.css";
 const HomePage = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  // const [pokemonName, setPokemonName] = useState<string>();
 
   return (
     <div className="HomePage_container">
@@ -18,12 +19,16 @@ const HomePage = () => {
         openModal={openModal}
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
+        // pokemonName={pokemonName}
+        // setPokemonName={setPokemonName}
       />
       <InfoModal
         setOpenModal={setOpenModal}
         openModal={openModal}
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
+        // pokemonName={pokemonName}
+        // setPokemonName={setPokemonName}
       />
     </div>
   );
