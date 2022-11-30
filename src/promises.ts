@@ -34,7 +34,6 @@ export const allPokemonUrlArray = async () => {
   });
 
   const allPokemons = await Promise.all(promises).then((result: any) => {
-    // console.log(result[0].data.name);
     return result;
   });
   return allPokemons;

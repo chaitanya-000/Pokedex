@@ -2,10 +2,20 @@ import React from "react";
 import Card from "../../molecules/Card/Card";
 import "./CardContainer.css";
 
-const CardContainer = () => {
+const CardContainer = ({
+  setOpenModal,
+  openModal,
+  selectedIndex,
+  setSelectedIndex,
+}: any) => {
   return (
-    <div className="CardContainer_container">
-      <Card />
+    <div
+      className="CardContainer_container"
+      onClick={() => {
+        setOpenModal(!openModal);
+      }}
+    >
+      <Card selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
     </div>
   );
 };

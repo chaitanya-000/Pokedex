@@ -1,12 +1,9 @@
 import { Text } from "@mantine/core";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-query";
 import { allPokemonUrlArray } from "../../../promises";
-import CardImage from "../../atoms/cardImage/CardImage";
 import "./Card.css";
 
-const Card = () => {
+const Card = ({ selectedIndex, setSelectedIndex }: any) => {
   const [pokemonArray, setPokemonArray] = useState<any>([]);
 
   useEffect(() => {
@@ -17,33 +14,18 @@ const Card = () => {
     };
     myFunc();
   }, []);
-
-  console.log(pokemonArray);
-  // const fetchData = async () => {
-  //   const apidata = await axios.get(
-  //     "https://pokeapi.co/api/v2/pokemon?offset=0&limit=24"
-  //   );
-  //   return await apidata;
-  // };
-  // const { data, isLoading, isError, error, isSuccess, isLoadingError } =
-  //   useQuery("pokemons", fetchData);
-
-  // const pokemonArray = data && data.data && data.data.results;
-
-  // if (pokemonArray) {
-  //   const arrayOfUrl = pokemonArray.map((eachObj: any) => {
-  //     return eachObj.url;
-  //   });
-  //   // console.log(arrayOfUrl);
-  // }
+  console.log("Selected Index ", selectedIndex);
   return (
     pokemonArray &&
     pokemonArray.map((eachObj: any, index: number) => {
       return (
-        <div className="Card_container" key={index}>
+        <div
+          className="Card_container"
+          key={index}
+          onClick={() => setSelectedIndex(index + 1)}
+        >
           <img
             src={`${eachObj?.data?.sprites?.other?.dream_world?.front_default}`}
-            // src="https://picsum.photos/200/300"
             alt="Pokemon"
             className="CardImage_image"
           />
