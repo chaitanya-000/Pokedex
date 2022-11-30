@@ -1,8 +1,19 @@
 .modal {
   border: 12px solid yellow;
 }
-.Modal_container {
-  border: 2px solid blue;
-  width: 100%;
-  height: 100%;
+.modal_container {
+  border: 2px dotted black;
+  text-align: center;
+}
+.modal_Image_and_info {
+  border: 2px solid violet;
+  display: flex;
+  justify-content: space-around;
+}
+.info {
+  border: 2px solid orange;
+  width: 50%;
+}
+.bottom_container {
+  border: 3px dotted goldenrod;
 }

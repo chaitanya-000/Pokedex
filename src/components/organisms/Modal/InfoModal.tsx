@@ -31,14 +31,38 @@ const InfoModal = ({
         className="modal"
         opened={openModal}
         onClose={() => setOpenModal(false)}
-        title="Introduce yourself!"
         overlayOpacity={0.55}
         overlayBlur={3}
         closeOnClickOutside
         size={"60%"}
       >
-        <img src={imageapi && imageapi} alt="" style={{ width: "39%" }} />
-        <h2>{pokemonName}</h2>
+        <div className="modal_container">
+          <h2 style={{ border: "2px solid green" }}>
+            {pokemonName?.toUpperCase()}
+          </h2>
+
+          <div className="modal_Image_and_info">
+            <img
+              src={imageapi && imageapi}
+              alt=""
+              style={{ width: "20%", border: "2px solid red" }}
+            />
+            <div className="info">
+              <h3>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Sapiente consequatur quia nihil labore assumenda facilis, velit
+                itaque, magnam excepturi non ea magni voluptatem!
+              </h3>
+            </div>
+          </div>
+          <div className="bottom_container">
+            <h3>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+              delectus accusantium mollitia quae, ullam eum repellendus nam
+              libero. A temporibus qui cum maxime!
+            </h3>
+          </div>
+        </div>
       </Modal>
     )
   );
