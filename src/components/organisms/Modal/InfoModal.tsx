@@ -12,22 +12,46 @@ const InfoModal = ({
   const [imageapi, setImageApi] = useState<string>();
   const [pokemonName, setPokemonName] = useState<string>();
   const [pokemonType, setPokemonType] = useState([]);
+  const [pokemonInfo, setPokemonInfo] = useState([]);
 
   const getimgSrc = async () => {
     await axios
       .get(`https://pokeapi.co/api/v2/pokemon/${selectedIndex}`)
       .then((response) => {
-        // console.log("Pokemon TYpes", response.data.types);
         setPokemonType(response.data.types);
         setImageApi(response.data?.sprites?.other?.dream_world?.front_default);
         setPokemonName(response.data?.name);
       });
   };
 
+  const infoText = async () => {
+    await axios
+      .get(`https://pokeapi.co/api/v2/pokemon-species/1`)
+      .then((response) => {
+        const filteredFlavourTextArray =
+          response.data.flavor_text_entries.filter((eachObj: any) => {
+            return eachObj.language.name === "en";
+          });
+
+        setPokemonInfo(filteredFlavourTextArray);
+      });
+    // console.log(pokemonInfo);
+  };
+
+  const xyz = pokemonInfo.map((eachObj: any) => {
+    return eachObj.flavor_text;
+  });
+  // console.log(xyz);
+
+  const filteredArray = xyz.filter((eachElement, index, xyz) => {
+    return xyz.indexOf(eachElement) === index;
+  });
+  console.log(filteredArray);
+
   useEffect(() => {
     openModal && getimgSrc();
+    infoText();
   }, [openModal]);
-  console.log(pokemonType);
 
   return (
     openModal && (
@@ -53,12 +77,15 @@ const InfoModal = ({
               style={{ width: "20%", border: "2px solid red" }}
             />
             <div className="info">
-              <h2>Type</h2>
-              {pokemonType.map(
-                (eachObj: { type: { name: string } }, index: number) => {
-                  return <h3 key={index}>{eachObj.type.name}</h3>;
-                }
-              )}
+              {}
+              <div className="pokemon_type">
+                <h2>Type</h2>
+                {pokemonType.map(
+                  (eachObj: { type: { name: string } }, index: number) => {
+                    return <h3 key={index}>{eachObj.type.name}</h3>;
+                  }
+                )}
+              </div>
             </div>
           </div>
           <div className="bottom_container">
@@ -75,3 +102,8 @@ const InfoModal = ({
 };
 
 export default InfoModal;
+
+// let myArray: any = [];
+// myArray.push(...myArray, eachObj.flavor_text);
+
+// console.log(myArray);

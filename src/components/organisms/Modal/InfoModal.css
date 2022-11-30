@@ -19,3 +19,6 @@
 .bottom_container {
   border: 3px dotted goldenrod;
 }
+.pokemon_type {
+  border: 2px solid black;
+}
