@@ -41,6 +41,7 @@ export const allPokemonUrlArray = async () => {
 
 export const pokemonTypes = async () => {
   const response = await axios.get(`${API_TYPES}`);
+  // console.log(response.data.results);
   const result = await response.data.results;
 
   const types = result.map((eachObj: { name: string }) => {
@@ -53,5 +54,6 @@ export const pokemonTypes = async () => {
     abc[`${eachObj}`] = colors[index];
     return abc;
   });
+  // console.log(values);
   return { values, types };
 };

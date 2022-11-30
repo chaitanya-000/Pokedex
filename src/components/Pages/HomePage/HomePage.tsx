@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { pokemonTypes } from "../../../promises";
 import CardContainer from "../../organisms/CardContainer/CardSection";
 import InputSection from "../../organisms/InputSection/InputSection";
 import InfoModal from "../../organisms/Modal/InfoModal";
@@ -8,7 +9,12 @@ import "./HomePage.css";
 const HomePage = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  // const [pokemonName, setPokemonName] = useState<string>();
+
+  const result = pokemonTypes().then((response) => {
+    response.values.map((eachObj: any) => {
+      return eachObj;
+    });
+  });
 
   return (
     <div className="HomePage_container">
@@ -19,16 +25,12 @@ const HomePage = () => {
         openModal={openModal}
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
-        // pokemonName={pokemonName}
-        // setPokemonName={setPokemonName}
       />
       <InfoModal
         setOpenModal={setOpenModal}
         openModal={openModal}
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
-        // pokemonName={pokemonName}
-        // setPokemonName={setPokemonName}
       />
     </div>
   );

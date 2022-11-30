@@ -7,9 +7,7 @@ const CardContainer = ({
   openModal,
   selectedIndex,
   setSelectedIndex,
-}: // pokemonName,
-// setPokemonName,
-any) => {
+}: any) => {
   return (
     <div
       className="CardContainer_container"
@@ -17,12 +15,7 @@ any) => {
         setOpenModal(!openModal);
       }}
     >
-      <Card
-        selectedIndex={selectedIndex}
-        setSelectedIndex={setSelectedIndex}
-        // pokemonName={pokemonName}
-        // setPokemonName={setPokemonName}
-      />
+      <Card selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
     </div>
   );
 };

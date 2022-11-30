@@ -1,6 +1,6 @@
 import { Modal } from "@mantine/core";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./InfoModal.css";
 
 const InfoModal = ({
@@ -11,19 +11,23 @@ const InfoModal = ({
 }: any) => {
   const [imageapi, setImageApi] = useState<string>();
   const [pokemonName, setPokemonName] = useState<string>();
+  const [pokemonType, setPokemonType] = useState([]);
 
   const getimgSrc = async () => {
     await axios
       .get(`https://pokeapi.co/api/v2/pokemon/${selectedIndex}`)
       .then((response) => {
-        console.log(response.data.name);
+        // console.log("Pokemon TYpes", response.data.types);
+        setPokemonType(response.data.types);
         setImageApi(response.data?.sprites?.other?.dream_world?.front_default);
         setPokemonName(response.data?.name);
       });
   };
-  if (openModal) {
-    getimgSrc();
-  }
+
+  useEffect(() => {
+    openModal && getimgSrc();
+  }, [openModal]);
+  console.log(pokemonType);
 
   return (
     openModal && (
@@ -35,11 +39,12 @@ const InfoModal = ({
         overlayBlur={3}
         closeOnClickOutside
         size={"60%"}
+        radius="lg"
       >
         <div className="modal_container">
-          <h2 style={{ border: "2px solid green" }}>
-            {pokemonName?.toUpperCase()}
-          </h2>
+          <h3 style={{ border: "2px solid green" }}>
+            {selectedIndex}: {pokemonName?.toUpperCase()}
+          </h3>
 
           <div className="modal_Image_and_info">
             <img
@@ -48,11 +53,12 @@ const InfoModal = ({
               style={{ width: "20%", border: "2px solid red" }}
             />
             <div className="info">
-              <h3>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Sapiente consequatur quia nihil labore assumenda facilis, velit
-                itaque, magnam excepturi non ea magni voluptatem!
-              </h3>
+              <h2>Type</h2>
+              {pokemonType.map(
+                (eachObj: { type: { name: string } }, index: number) => {
+                  return <h3 key={index}>{eachObj.type.name}</h3>;
+                }
+              )}
             </div>
           </div>
           <div className="bottom_container">

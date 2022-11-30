@@ -2,6 +2,7 @@
   border: 12px solid yellow;
 }
 .modal_container {
+  background-color: #deeded;
   border: 2px dotted black;
   text-align: center;
 }
@@ -13,6 +14,7 @@
 .info {
   border: 2px solid orange;
   width: 50%;
+  text-transform: capitalize;
 }
 .bottom_container {
   border: 3px dotted goldenrod;

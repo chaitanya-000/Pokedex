@@ -14,13 +14,10 @@ any) => {
   useEffect(() => {
     const myFunc = async () => {
       const myArray = await allPokemonUrlArray();
-      // console.log(myArray);
       setPokemonArray(myArray);
-      // setPokemonName()
     };
     myFunc();
   }, []);
-  // console.log("Selected Index ", selectedIndex);
   return (
     pokemonArray &&
     pokemonArray.map((eachObj: any, index: number) => {
@@ -29,6 +26,7 @@ any) => {
           className="Card_container"
           key={index}
           onClick={() => setSelectedIndex(index + 1)}
+          style={{ backgroundColor: "Orange" }}
         >
           <img
             src={`${eachObj?.data?.sprites?.other?.dream_world?.front_default}`}

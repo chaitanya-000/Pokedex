@@ -7,7 +7,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(rgb(192, 212, 200), rgb(207, 183, 237));
 }
 .CardImage_image {
   width: 60%;
